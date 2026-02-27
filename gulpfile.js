@@ -44,3 +44,7 @@ exports.default = series(
   parallel(styles, scripts, html),
   serve
 );
+
+exports.build = series(
+  parallel(styles, scripts, html)
+);
