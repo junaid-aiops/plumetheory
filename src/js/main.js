@@ -1,1 +1,3 @@
-console.log("Website Loaded");
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Wedding Photography Site Loaded");
+});

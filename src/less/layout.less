@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  max-width: @container-max;
+  margin: 0 auto;
+  padding-left: @container-padding;
+  padding-right: @container-padding;
+}
+
+@media (min-width: @desktop-xl) {
+  .container {
+    max-width: @container-max-xl;
+  }
+}
+
+.section {
+  padding: @space-xl 0;
+}
+
+.section-lg {
+  padding: @space-xxl 0;
+}

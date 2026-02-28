@@ -6,7 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
 function styles() {
-  return src('src/less/**/*.less')
+  return src('src/less/main.less')
     .pipe(sourcemaps.init())
     .pipe(less())
     .pipe(cleanCSS())

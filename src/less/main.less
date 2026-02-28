@@ -1,4 +1,21 @@
-body {
-  font-family: Arial;
-  background: #fafafa;
+@import "variables.less";
+@import "base.less";
+@import "layout.less";
+@import "typography.less";
+@import "components.less";
+
+/* Responsive adjustments */
+@media (max-width: @tablet) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
