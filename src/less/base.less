@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: @font-secondary;
@@ -11,9 +15,21 @@ body {
   line-height: @line-normal;
   color: @color-text;
   background: @color-bg;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: @container-max;
+  margin: 0 auto;
+  padding: 0 @container-padding;
+}
+
+.section-lg {
+  padding: @space-xxl 0;
 }
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
