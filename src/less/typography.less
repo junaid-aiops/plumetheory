@@ -1,13 +1,13 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: @font-primary;
-  font-weight: 500;
+  font-weight: 400; /* Cormorant looks better at lighter weights */
   margin-bottom: @space-sm;
   color: @color-text;
+  line-height: @line-tight;
 }
 
 h1 {
   font-size: @font-size-display;
-  line-height: @line-tight;
 }
 
 h2 {
@@ -28,8 +28,9 @@ h5 {
 
 h6 {
   font-size: @font-size-sm;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em; /* Increased for luxury feel */
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 p {

@@ -6,19 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-  <section class="section-lg">
-    <div class="container">
-      <h1>Luxury Wedding Photography</h1>
-      <p>Capturing timeless Indian weddings with elegance and emotion.</p>
-      <a href="#" class="btn">View Portfolio</a>
-    </div>
-  </section>
+  @@include('./partials/header.html')
+
+  <main>
+    @@include('./partials/hero.html')
+    @@include('./partials/services.html')
+    @@include('./partials/portfolio.html')
+    @@include('./partials/contact.html')
+  </main>
+
+  @@include('./partials/footer.html')
 
   <script src="assets/js/main.js"></script>
 </body>

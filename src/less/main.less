@@ -1,21 +1,16 @@
 @import "variables.less";
 @import "base.less";
-@import "layout.less";
 @import "typography.less";
-@import "components.less";
+@import "animations.less";
+@import "common.less";
+@import "buttons.less";
+@import "header.less";
+@import "hero.less";
+@import "services.less";
+@import "portfolio.less";
+@import "contact.less";
+@import "footer.less";
+@import "responsive.less";
 
-/* Responsive adjustments */
-@media (max-width: @tablet) {
-  h1 {
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
+/* Global Easing */
+@ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);

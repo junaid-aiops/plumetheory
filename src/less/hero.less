@@ -1,0 +1,100 @@
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: @color-cream;
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .bg-image, .bg-video, .bg-slider, .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .bg-image, .bg-video {
+      object-fit: cover;
+    }
+
+    .bg-slider {
+      .slide {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        &.active { opacity: 1; }
+      }
+    }
+
+    .hero-overlay {
+      display: block;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
+      z-index: 5;
+    }
+  }
+
+  // Handle Modes via Data Attribute
+  &[data-bg-mode="image"] .hero-bg .bg-image { display: block; }
+  &[data-bg-mode="video"] .hero-bg .bg-video { display: block; }
+  &[data-bg-mode="slider"] .hero-bg .bg-slider { display: block; }
+
+  .hero-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    color: #fff; // Light text on dark bg
+
+    h1 {
+      font-size: clamp(40px, 8vw, 84px);
+      margin: @space-sm 0 @space-md;
+      color: #fff;
+      span {
+        color: @color-gold; // Use gold for accent in dark mode
+        font-family: @font-accent;
+        text-transform: none;
+        display: block;
+        margin-top: -10px;
+      }
+    }
+
+    h6 {
+      color: @color-gold;
+    }
+
+    p {
+      font-size: @font-size-md;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: @space-lg;
+    }
+  }
+
+  // Fadeout smooth gradient effect blending into the next section
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, @color-bg 100%);
+    z-index: 20;
+    pointer-events: none;
+  }
+}

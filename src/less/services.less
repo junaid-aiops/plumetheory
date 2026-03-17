@@ -1,0 +1,112 @@
+/* Services Slider */
+.services {
+  position: relative;
+  
+  .container {
+    position: relative;
+  }
+}
+
+.services-slider {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  padding: @space-xl 0;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.service-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  opacity: 0.3;
+  transition: opacity 0.8s ease;
+
+  .service-title {
+    font-family: @font-primary;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    color: @color-text;
+    margin-bottom: @space-md;
+    
+    /* Animation Initial State */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition-delay: 0s;
+  }
+
+  .service-description {
+    font-family: @font-primary; // Default body font
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.6); // Slightly muted like original
+    max-width: 600px;
+    margin: 0 auto @space-lg;
+    
+    /* Animation Initial State */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition-delay: 0s; // Reset delay when not active
+  }
+
+  &.active {
+    opacity: 1;
+
+    /* Highlight Reveal on Active */
+    .service-description {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s; // Delays text reveal slightly after the slide fades in
+    }
+
+    .service-title {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.5s; // Delays title reveal even more for staggered effect
+    }
+  }
+}
+
+/* Elegant Thin Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 65%; // Pushed down to align with the slide text, ignoring the header height
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 32px; // Larger but thin appearance
+  color: @color-text;
+  font-family: @font-primary;
+  font-weight: 100; // Very thin
+  cursor: pointer;
+  padding: 10px 20px;
+  opacity: 0.3;
+  transition: all 0.4s @ease-out;
+  z-index: 10;
+  outline: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.prev {
+    left: 10px;
+    &:hover {
+      transform: translateY(-50%) translateX(-5px); // Subtle slide interaction
+    }
+  }
+
+  &.next {
+    right: 10px;
+    &:hover {
+      transform: translateY(-50%) translateX(5px);
+    }
+  }
+}

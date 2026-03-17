@@ -1,0 +1,120 @@
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: @space-md 0;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &.scrolled {
+    padding: @space-sm 0;
+    background: @glass-bg;
+    backdrop-filter: blur(@glass-blur);
+    border-bottom: 1px solid @glass-border;
+    box-shadow: @shadow-sm;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-family: @font-primary;
+    font-size: @font-size-lg;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: @color-text;
+    text-decoration: none;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: @space-lg;
+    align-items: center;
+
+    a {
+      font-size: @font-size-sm;
+      font-weight: 500;
+      color: @color-text;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &:hover {
+        color: @color-accent;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  /* Hamburger Menu Toggle */
+  .nav-toggle {
+    display: none; // Hidden on desktop
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1100;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: @color-text;
+      margin: 5px 0;
+      transition: 0.3s @ease-out;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+}
+
+// Ensure header text is visible on dark hero background
+// (header is position:fixed and overlays the hero, so we style it when transparent)
+.header:not(.scrolled) {
+
+  .logo a,
+  .nav-list a:not(.btn) {
+    color: #fff;
+  }
+
+  .nav-list a.btn {
+    background: #fff;
+    color: @color-primary;
+    border-color: #fff;
+
+    &:hover {
+      background: @color-accent;
+      color: #fff;
+      border-color: @color-accent;
+    }
+  }
+
+  .nav-toggle span {
+    background-color: #fff;
+  }
+}
+
+.header.scrolled .nav-toggle span {
+  background-color: @color-text;
+}
