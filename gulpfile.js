@@ -5,29 +5,6 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
-const fs = require('fs');
-const path = require('path');
-
-// Helper: recursively delete a folder and all its contents
-function deleteFolderRecursive(folderPath) {
-  if (fs.existsSync(folderPath)) {
-    fs.readdirSync(folderPath).forEach((file) => {
-      const curPath = path.join(folderPath, file);
-      if (fs.lstatSync(curPath).isDirectory()) {
-        deleteFolderRecursive(curPath);
-      } else {
-        fs.unlinkSync(curPath);
-      }
-    });
-    fs.rmdirSync(folderPath);
-  }
-}
-
-// Clean dist/assets/images before fresh copy (prevents stale/corrupted files)
-function cleanImages(cb) {
-  deleteFolderRecursive('dist/assets/images');
-  cb();
-}
 
 function styles() {
   return src('src/less/main.less')
@@ -57,37 +34,30 @@ function html() {
 }
 
 function images() {
-  return src('src/images/**/*')
-    .pipe(dest('dist/assets/images'))
-    .pipe(browserSync.stream());
+  return src('src/images/**/*', { encoding: false })
+    .pipe(dest('dist/assets/images'));
 }
 
 function videos() {
-  return src('src/video/**/*')
-    .pipe(dest('dist/assets/video'))
-    .pipe(browserSync.stream());
+  return src('src/video/**/*', { encoding: false })
+    .pipe(dest('dist/assets/video'));
 }
 
 function serve() {
   browserSync.init({
-    server: {
-      baseDir: 'dist'
-    }
+    server: { baseDir: 'dist' }
   });
 
   watch('src/less/**/*.less', styles);
   watch('src/js/**/*.js', scripts);
   watch('src/html/**/*.html', html);
-  // On image changes during watch: clean then re-copy to stay in sync
-  watch('src/images/**/*', series(cleanImages, images));
-  watch('src/video/**/*', videos);
+  watch('src/images/**/*', series(images, (cb) => { browserSync.reload(); cb(); }));
+  watch('src/video/**/*', series(videos, (cb) => { browserSync.reload(); cb(); }));
 }
 
 exports.default = series(
-  parallel(styles, scripts, html, series(cleanImages, images), videos),
+  parallel(styles, scripts, html, images, videos),
   serve
 );
 
-exports.build = series(
-  parallel(styles, scripts, html, series(cleanImages, images), videos)
-);
+exports.build = parallel(styles, scripts, html, images, videos);
