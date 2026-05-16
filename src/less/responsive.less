@@ -4,7 +4,7 @@
 @media (max-width: @tablet) {
 
   .section-lg {
-    padding: 0;
+    padding: @space-xl 0;
   }
 
   .header {
@@ -18,11 +18,15 @@
       left: 0;
       width: 100%;
       height: 100vh;
+      margin: 0;
+      padding: 0;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(30px);
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
       opacity: 0;
       visibility: hidden;
       transform: scale(1.1);
@@ -160,14 +164,30 @@
     }
   }
 
+  .about-aesthetic-wrapper {
+    flex-direction: column-reverse;
+    gap: @space-xl;
+    text-align: center;
+
+    .aesthetic-content,
+    .aesthetic-images {
+      width: 100%;
+    }
+
+    .aesthetic-images {
+      padding-right: 0;
+      padding-bottom: 30px;
+    }
+  }
+
   .contact-wrapper {
     flex-direction: column;
-    gap: @space-xl;
+    gap: @space-md;
 
     .contact-info,
     .contact-form-container {
       width: 100%;
-      padding: @space-md;
+      padding: @space-sm;
     }
   }
 
@@ -208,23 +228,23 @@
 
 // Mobile Portrait
 @media (max-width: @mobile) {
+  h2, .section-header h2 {
+    font-size: 32px;
+  }
+
   .section-header {
     margin-bottom: @space-lg;
-
-    h2 {
-      font-size: 36px;
-    }
   }
 
   .hero-actions {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
     width: 100%;
 
-    .btn {
-      width: 100%;
-      margin: 5px 0;
-      text-align: center;
+    .hero-link {
+      margin: 0;
     }
   }
 }

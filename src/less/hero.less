@@ -78,6 +78,42 @@
       color: @color-gold;
     }
 
+    .hero-quote {
+      margin-bottom: @space-xl;
+      
+      .line-1 {
+        display: block;
+        font-family: @font-primary;
+        font-size: clamp(28px, 6vw, 48px);
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+      
+      .line-2 {
+        display: block;
+        font-family: @font-accent;
+        font-size: clamp(54px, 12vw, 96px);
+        color: @color-gold;
+        line-height: 0.7;
+        margin-left: -5px;
+        transform: rotate(-3deg);
+        margin-bottom: 20px;
+      }
+      
+      .line-3 {
+        display: block;
+        font-family: @font-primary;
+        font-size: clamp(14px, 2.5vw, 20px);
+        text-transform: uppercase;
+        letter-spacing: 0.35em;
+        color: #fff;
+        margin-left: 20px;
+        opacity: 0.8;
+      }
+    }
+
     p {
       font-size: @font-size-md;
       color: rgba(255,255,255,0.9);
@@ -85,26 +121,26 @@
     }
 
     .hero-actions {
-      .btn {
-        background: #fff;
-        color: @color-primary;
-        border-color: #fff;
+      display: flex;
+      gap: 30px;
+      margin-top: 10px;
+
+      .hero-link {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        padding-bottom: 6px;
+        transition: all 0.3s ease;
+        text-decoration: none;
 
         &:hover {
-          background: @color-accent;
-          color: #fff;
-          border-color: @color-accent;
-        }
-
-        &.btn-outline {
-          background: transparent;
           color: #fff;
           border-color: #fff;
-
-          &:hover {
-            background: #fff;
-            color: @color-primary;
-          }
+          padding-right: 5px; /* Slight right-slide animation on hover */
         }
       }
     }

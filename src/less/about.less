@@ -1,0 +1,119 @@
+/* Aesthetic About Section */
+.about {
+  background: @color-bg;
+  overflow: hidden;
+}
+
+.about-aesthetic-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+
+  .aesthetic-images {
+    flex: 1;
+    position: relative;
+    padding-right: 80px; /* offset for accent image overlap */
+    padding-bottom: 50px;
+
+    .img-main {
+      overflow: hidden;
+      border-radius: 200px 200px 0 0; /* Modern luxury 'arch' style */
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      aspect-ratio: 4 / 5;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: block;
+      }
+      
+      &:hover img {
+        transform: scale(1.08); /* Slower, deeper luxury zoom */
+      }
+    }
+
+    .img-accent {
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      width: 45%;
+      aspect-ratio: 3 / 4; /* Perfect portrait */
+      border: 10px solid @color-bg; /* Wide white gallery framing effect */
+      box-shadow: @shadow-lg;
+      z-index: 2;
+      overflow: hidden;
+      border-radius: 12px; /* Soft premium corners */
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      
+      &:hover img {
+        transform: scale(1.08);
+      }
+    }
+  }
+
+  .aesthetic-content {
+    flex: 1;
+
+    h6 {
+      color: @color-accent;
+      margin-bottom: @space-sm;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 11px;
+    }
+
+    h2 {
+      margin-bottom: @space-md;
+      font-weight: 400;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: @color-accent;
+      margin-bottom: @space-lg;
+    }
+
+    p {
+      color: lighten(@color-text, 20%);
+      line-height: 1.8;
+      margin-bottom: @space-md;
+      font-size: 16px;
+    }
+
+    .signature {
+      font-family: @font-accent;
+      font-size: 42px;
+      color: @color-text;
+      margin-top: @space-lg;
+      opacity: 0.8;
+      transform: rotate(-3deg);
+    }
+    .about-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: @color-text;
+      border-bottom: 1px solid @color-accent;
+      padding-bottom: 4px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: @color-accent;
+        padding-right: 5px; /* Creates a slight arrow movement effect */
+      }
+    }
+  }
+}
