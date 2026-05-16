@@ -23,6 +23,25 @@ function scripts() {
     .pipe(browserSync.stream());
 }
 
+const imagemin = require('gulp-imagemin');
+
+function images() {
+  return src('src/images/**/*')
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.mozjpeg({quality: 75, progressive: true}),
+      imagemin.optipng({optimizationLevel: 5}),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: true},
+          {cleanupIDs: false}
+        ]
+      })
+    ]))
+    .pipe(dest('dist/assets/images'))
+    .pipe(browserSync.stream());
+}
+
 function html() {
   return src(['src/html/**/*.html', '!src/html/partials/**'])
     .pipe(fileInclude({
