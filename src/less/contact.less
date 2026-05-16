@@ -35,21 +35,23 @@
   }
 }
 
-.contact-form {
-  .form-group {
+.instagram-contact {
+  text-align: center;
+  padding: @space-md 0;
+  
+  .instagram-icon {
+    font-size: 3rem;
+    color: @color-accent;
     margin-bottom: @space-md;
-
-    input, select, textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid @color-border;
-      font-family: @font-secondary;
-      outline: none;
-      transition: 0.3s;
-
-      &:focus {
-        border-color: @color-accent;
-      }
-    }
+  }
+  
+  h3 {
+    margin-bottom: @space-sm;
+    font-size: @font-size-xl;
+  }
+  
+  p {
+    margin-bottom: @space-lg;
+    color: lighten(@color-text, 20%);
   }
 }

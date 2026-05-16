@@ -17,6 +17,17 @@
     backdrop-filter: blur(@glass-blur);
     border-bottom: 1px solid @glass-border;
     box-shadow: @shadow-sm;
+
+    .nav-list a.btn {
+      background: @color-primary;
+      color: #ffffff !important;
+      border: 1px solid @color-primary;
+
+      &:hover {
+        background: @color-accent;
+        border-color: @color-accent;
+      }
+    }
   }
 
   .header-container {
