@@ -15,7 +15,10 @@
     height: 100%;
     z-index: 1;
 
-    .bg-image, .bg-video, .bg-slider, .hero-overlay {
+    .bg-image,
+    .bg-video,
+    .bg-slider,
+    .hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
@@ -24,33 +27,48 @@
       display: none;
     }
 
-    .bg-image, .bg-video {
+    .bg-image,
+    .bg-video {
       object-fit: cover;
     }
 
     .bg-slider {
       .slide {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-size: cover;
         background-position: center;
         opacity: 0;
         transition: opacity 1.5s ease-in-out;
-        &.active { opacity: 1; }
+
+        &.active {
+          opacity: 1;
+        }
       }
     }
 
     .hero-overlay {
       display: block;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%);
       z-index: 5;
     }
   }
 
   // Handle Modes via Data Attribute
-  &[data-bg-mode="image"] .hero-bg .bg-image { display: block; }
-  &[data-bg-mode="video"] .hero-bg .bg-video { display: block; }
-  &[data-bg-mode="slider"] .hero-bg .bg-slider { display: block; }
+  &[data-bg-mode="image"] .hero-bg .bg-image {
+    display: block;
+  }
+
+  &[data-bg-mode="video"] .hero-bg .bg-video {
+    display: block;
+  }
+
+  &[data-bg-mode="slider"] .hero-bg .bg-slider {
+    display: block;
+  }
 
   .hero-container {
     position: relative;
@@ -65,6 +83,7 @@
       font-size: clamp(40px, 8vw, 84px);
       margin: @space-sm 0 @space-md;
       color: #fff;
+
       span {
         color: @color-gold; // Use gold for accent in dark mode
         font-family: @font-accent;
@@ -80,7 +99,7 @@
 
     .hero-quote {
       margin-bottom: @space-xl;
-      
+
       .line-1 {
         display: block;
         font-family: @font-primary;
@@ -90,7 +109,7 @@
         letter-spacing: 0.05em;
         margin-bottom: 10px;
       }
-      
+
       .line-2 {
         display: block;
         font-family: @font-accent;
@@ -101,7 +120,7 @@
         transform: rotate(-3deg);
         margin-bottom: 20px;
       }
-      
+
       .line-3 {
         display: block;
         font-family: @font-primary;
@@ -116,7 +135,7 @@
 
     p {
       font-size: @font-size-md;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: @space-lg;
     }
 
@@ -140,7 +159,8 @@
         &:hover {
           color: #fff;
           border-color: #fff;
-          padding-right: 5px; /* Slight right-slide animation on hover */
+          padding-right: 5px;
+          /* Slight right-slide animation on hover */
         }
       }
     }
@@ -154,7 +174,7 @@
     left: 0;
     width: 100%;
     height: 150px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, @color-bg 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, @color-bg 100%);
     z-index: 20;
     pointer-events: none;
   }
