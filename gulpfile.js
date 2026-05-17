@@ -26,7 +26,7 @@ function scripts() {
 const imagemin = require('gulp-imagemin');
 
 function images() {
-  return src('src/images/**/*')
+  return src('src/images/**/*', { encoding: false })
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.mozjpeg({quality: 75, progressive: true}),
@@ -52,10 +52,7 @@ function html() {
     .pipe(browserSync.stream());
 }
 
-function images() {
-  return src('src/images/**/*', { encoding: false })
-    .pipe(dest('dist/assets/images'));
-}
+
 
 function videos() {
   return src('src/video/**/*', { encoding: false })
